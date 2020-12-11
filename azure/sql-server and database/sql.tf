@@ -7,7 +7,7 @@
 #
 
 provider "azurerm" {
-    version         =   "~> 2.25.0"
+    version         =   ">= 2.25.0"
     client_id       =   var.client_id
     client_secret   =   var.client_secret
     subscription_id =   var.subscription_id
@@ -44,13 +44,6 @@ resource "azurerm_sql_server" "ss" {
   tags                              =       var.tags
 }
 
-resource "azurerm_sql_active_directory_administrator" "ss" {
-  server_name                       =       azurerm_sql_server.ss.name
-  resource_group_name               =       azurerm_resource_group.ss.name
-  login                             =       "sql-admins"
-  tenant_id                         =       data.azurerm_client_config.current.tenant_id
-  object_id                         =       var.sqlVars["ObjectID"]
-}
 
 #
 # - SQL Server Firewall Rules

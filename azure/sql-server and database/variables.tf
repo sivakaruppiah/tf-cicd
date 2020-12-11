@@ -72,7 +72,6 @@ variable "sqlVars" {
       Server-Version          =        "12.0"
       Username                =        "Sqladmin"
       Password                =        "V@m$!Pass1325*"
-      ObjectID                =        "f4b1f699-3d5b-460f-92ff-abd9e3de6eaa"
       DBName                  =        "SQL-DB1"
       CreateMode              =        "Default"
       Edition                 =        "Basic"

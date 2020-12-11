@@ -6,7 +6,7 @@ Write-Host "Setting the DNS Client server address"
 
 $ii = (Get-NetIPAddress -InterfaceAlias Ethernet -AddressFamily IPV4).InterfaceIndex
 
-Set-DnsClientServerAddress -InterfaceIndex $ii -ServerAddresses "10.0.1.4"
+Set-DnsClientServerAddress -InterfaceIndex $ii -ServerAddresses "10.0.0.4"
 
 Write-Host "Adding the computer to the domain"
 
