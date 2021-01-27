@@ -1,14 +1,15 @@
 pipeline{
-    agent any 
-    tools {
-        "org.jenkinsci.plugins.terraform.TerraformInstallation" "terraform"
-    }
-    environment {
-        TF_HOME = tool('terraform')
-        TF_IN_AUTOMATION = "true"
-        PATH = "$TF_HOME:$PATH"
-    }
+
+    agent { label 'terraform' }
+    
     stages {
+
+
+        stage('Checkout Source') {
+            steps {
+                   git url:'https://github.com/justmeandopensource/playjenkins.git', branch:'test-deploy-stage'
+                   }
+        }   
     
         stage('Terraform Init'){
             
