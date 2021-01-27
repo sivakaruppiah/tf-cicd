@@ -2,6 +2,15 @@
 pipeline {
 
   agent { label 'terraform' }
+
+  stages {
+
+    stage('Checkout Source') {
+      steps {
+        git url:'https://github.com/sivakaruppiah/tf-cicd.git', branch:'master'
+      }
+    }
+
   
     stages {
     
