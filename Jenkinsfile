@@ -1,15 +1,14 @@
 pipeline{
-
-    agent { label 'terraform' }
-    
+    agent any 
+    tools {
+        "org.jenkinsci.plugins.terraform.TerraformInstallation" "terraform"
+    }
+    environment {
+        TF_HOME = tool('terraform')
+        TF_IN_AUTOMATION = "true"
+        PATH = "$TF_HOME:$PATH"
+    }
     stages {
-
-
-        stage('Checkout Source') {
-            steps {
-                   git url:'https://github.com/sivakaruppiah/tf-cicd.git', branch:'master'
-                   }
-        }   
     
         stage('Terraform Init'){
             
